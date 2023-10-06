@@ -21,5 +21,5 @@ RUN apt-get update && apt-get install -y \
     libmagick++-dev \
     && rm -rf /var/lib/apt/lists/*
 RUN R -e 'install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform[["pkgType"]], R.Version()[["os"]], R.Version()[["arch"]]))'
-RUN R -e 'pak::pkg_install(c("log4r","tidylog","logr","ggtext","optparse","sessioninfo","DESeq2","DiffBind","csaw","profileplyr","ComplexHeatmap"),upgrade = TRUE,ask = FALSE)' \
+RUN R -e 'pak::pkg_install(c("here","log4r","tidylog","logr","ggtext","optparse","sessioninfo","DESeq2","DiffBind","csaw","profileplyr","ComplexHeatmap"),upgrade = TRUE,ask = FALSE)' \
     && R -e 'pak::cache_clean()'
